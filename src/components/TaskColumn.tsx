@@ -52,7 +52,7 @@ const TaskColumn: React.FC<TaskColumnProps> = ({
           <div
             ref={provided.innerRef}
             {...provided.droppableProps}
-            className={`p-4 min-h-[200px] transition-colors ${
+            className={`p-4 min-h-[300px] transition-colors ${
               snapshot.isDraggingOver ? 'bg-white bg-opacity-50' : ''
             }`}
           >
@@ -70,10 +70,12 @@ const TaskColumn: React.FC<TaskColumnProps> = ({
             
             {tasks.length === 0 && (
               <div className="text-center text-gray-400 py-8">
-                <svg className="w-12 h-12 mx-auto mb-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                </svg>
-                <p>No tasks yet</p>
+                <p className="text-sm">No tasks</p>
+                {snapshot.isDraggingOver && (
+                  <div className="mt-2 p-2 bg-blue-100 text-blue-700 rounded border-dashed border-2 border-blue-300">
+                    <p className="text-sm">Drop here</p>
+                  </div>
+                )}
               </div>
             )}
           </div>

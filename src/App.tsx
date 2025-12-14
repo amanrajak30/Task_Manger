@@ -162,23 +162,20 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Header */}
-      <header className="bg-white shadow-sm border-b border-gray-200">
+      <header className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
+            <div>
               <h1 className="text-2xl font-bold text-gray-900">Task Manager</h1>
-              <span className="ml-3 text-sm text-gray-500">
-                {tasks.length} total tasks
-              </span>
+              <p className="text-sm text-gray-500">
+                {tasks.length} tasks total
+              </p>
             </div>
             <button
               onClick={openCreateModal}
-              className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center space-x-2"
+              className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-              </svg>
-              <span>Add Task</span>
+              Add Task
             </button>
           </div>
         </div>
@@ -187,10 +184,28 @@ function App() {
       {/* Filters */}
       <FilterBar filters={filters} onFiltersChange={setFilters} />
 
+      {/* Welcome Message for New Users */}
+      {tasks.length === 0 && (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="bg-gray-50 border rounded-lg p-8 text-center">
+            <h2 className="text-xl font-semibold text-gray-800 mb-2">No tasks yet</h2>
+            <p className="text-gray-600 mb-4">
+              Create your first task to get started. You can drag tasks between columns to change their status.
+            </p>
+            <button
+              onClick={openCreateModal}
+              className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors"
+            >
+              Create First Task
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <DragDropContext onDragEnd={handleDragEnd}>
-          <div className="flex flex-col lg:flex-row gap-6 lg:gap-0">
+          <div className="flex flex-col lg:flex-row gap-6 lg:gap-4">
             <TaskColumn
               title="To-Do"
               tasks={todoTasks}
@@ -214,6 +229,7 @@ function App() {
             />
           </div>
         </DragDropContext>
+
       </main>
 
       {/* Task Modal */}

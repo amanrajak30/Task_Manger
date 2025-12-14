@@ -46,30 +46,28 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, index, allTasks, onEdit, onDe
             <h3 className="font-medium text-gray-900 flex-1 pr-2">{task.title}</h3>
             <button
               onClick={handleDelete}
-              className="text-gray-400 hover:text-red-500 transition-colors"
-              title="Delete task"
+              className="text-gray-400 hover:text-red-500 transition-colors text-sm"
+              title="Delete"
             >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
+              ×
             </button>
           </div>
           
           {isDuplicate && (
             <div className="mb-2">
-              <span className="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded-full border border-orange-200">
-                Duplicate Task
+              <span className="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded border border-orange-200">
+                Duplicate
               </span>
             </div>
           )}
           
-          <p className="text-sm text-gray-600 mb-3 line-clamp-2">{task.description}</p>
+          <p className="text-sm text-gray-600 mb-3">{task.description}</p>
           
-          <div className="flex justify-between items-center">
-            <span className={`inline-block text-xs px-2 py-1 rounded-full border ${getPriorityColor(task.priority)}`}>
+          <div className="flex justify-between items-center text-xs">
+            <span className={`px-2 py-1 rounded border ${getPriorityColor(task.priority)}`}>
               {task.priority}
             </span>
-            <span className="text-xs text-gray-500">
+            <span className="text-gray-500">
               Due: {formatDate(task.dueDate)}
             </span>
           </div>
