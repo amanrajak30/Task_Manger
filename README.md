@@ -166,15 +166,26 @@ The application uses localStorage to persist data:
    ```
 3. Deploy: `npm run deploy`
 
-### Vercel
+### Vercel (Recommended)
 1. Install Vercel CLI: `npm i -g vercel`
-2. Run: `vercel`
-3. Follow the prompts
+2. Login: `vercel login`
+3. Deploy: `vercel`
+4. Production: `vercel --prod`
+
+**Or use Vercel Dashboard:**
+1. Go to [vercel.com](https://vercel.com)
+2. Import GitHub repository
+3. Deploy automatically
 
 ### Netlify
 1. Build the project: `npm run build`
 2. Drag and drop the `build` folder to Netlify
 3. Or connect your GitHub repository for automatic deployments
+
+### GitHub Pages
+1. Install gh-pages: `npm install --save-dev gh-pages`
+2. Add homepage to package.json
+3. Deploy: `npm run deploy`
 
 ## 🔧 Configuration
 
