@@ -166,16 +166,21 @@ The application uses localStorage to persist data:
    ```
 3. Deploy: `npm run deploy`
 
-### Vercel (Recommended)
+### Render (Recommended)
+1. Go to [render.com](https://render.com)
+2. Sign up with GitHub account
+3. Click "New +" → "Static Site"
+4. Connect repository: `amanrajak30/Task_Manger`
+5. Configure:
+   - Build Command: `npm install --legacy-peer-deps && npm run build`
+   - Publish Directory: `build`
+6. Deploy automatically
+
+### Vercel
 1. Install Vercel CLI: `npm i -g vercel`
 2. Login: `vercel login`
 3. Deploy: `vercel`
 4. Production: `vercel --prod`
-
-**Or use Vercel Dashboard:**
-1. Go to [vercel.com](https://vercel.com)
-2. Import GitHub repository
-3. Deploy automatically
 
 ### Netlify
 1. Build the project: `npm run build`

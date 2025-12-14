@@ -21,7 +21,20 @@ git push -u origin main
 npm run deploy
 ```
 
-### 3. Vercel Deployment
+### 3. Render Deployment (Recommended)
+```bash
+# No CLI needed - use web dashboard
+# 1. Go to render.com
+# 2. Sign up with GitHub
+# 3. New + → Static Site
+# 4. Connect repository
+# 5. Configure:
+#    - Build: npm install --legacy-peer-deps && npm run build
+#    - Publish: build
+# 6. Deploy
+```
+
+### 4. Vercel Deployment
 ```bash
 # Install Vercel CLI
 npm i -g vercel
@@ -38,7 +51,7 @@ vercel
 # - Override settings? N
 ```
 
-### 4. Netlify Deployment
+### 5. Netlify Deployment
 
 #### Option A: Drag & Drop
 1. Run `npm run build`
