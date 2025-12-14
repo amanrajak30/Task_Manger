@@ -1,6 +1,7 @@
 import { Task } from '../types/Task';
+import config from '../config/env';
 
-const STORAGE_KEY = 'task-manager-tasks';
+const STORAGE_KEY = config.storage.key;
 
 export const loadTasksFromStorage = (): Task[] | null => {
   try {

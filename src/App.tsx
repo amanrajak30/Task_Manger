@@ -6,6 +6,7 @@ import { loadTasksFromStorage, saveTasksToStorage } from './utils/localStorage';
 import TaskColumn from './components/TaskColumn';
 import TaskModal from './components/TaskModal';
 import FilterBar from './components/FilterBar';
+import config from './config/env';
 
 function App() {
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -166,9 +167,9 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">Task Manager</h1>
+              <h1 className="text-2xl font-bold text-gray-900">{config.app.name}</h1>
               <p className="text-sm text-gray-500">
-                {tasks.length} tasks total
+                {tasks.length} tasks total • v{config.app.version}
               </p>
             </div>
             <button
