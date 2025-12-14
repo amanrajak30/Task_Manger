@@ -96,10 +96,14 @@ The project includes:
 
 ### Common Issues:
 
-1. **Build fails**: Check `npm run build` works locally
-2. **404 on refresh**: Vercel.json handles SPA routing
-3. **Assets not loading**: Check public folder structure
-4. **Environment variables**: Must start with `REACT_APP_`
+1. **Peer dependency conflicts**: 
+   - Fixed with `.npmrc` and `overrides` in package.json
+   - Vercel uses `--legacy-peer-deps` automatically
+
+2. **Build fails**: Check `npm run build` works locally
+3. **404 on refresh**: Vercel.json handles SPA routing
+4. **Assets not loading**: Check public folder structure
+5. **Environment variables**: Must start with `REACT_APP_`
 
 ### Performance Tips:
 
